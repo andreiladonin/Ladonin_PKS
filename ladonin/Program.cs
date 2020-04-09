@@ -10,7 +10,7 @@ namespace ladonin
     {
         static void Main(string[] args)
         {
-            BaseShip ship = new BaseShip();
+           TransportShip ship = new TransportShip();
 
             string res = ship.Move(2000);
 
