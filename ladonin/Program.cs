@@ -12,7 +12,7 @@ namespace ladonin
         {
            TransportShip ship = new TransportShip();
 
-            string res = ship.Move(2000);
+            string res = ship.ToString();
 
             Console.WriteLine(res);
 
@@ -22,17 +22,17 @@ namespace ladonin
 
         public class BaseShip
         {
-            public BaseShip()
-            {
-                Console.WriteLine("Вызван конструкор родительского класса");
+            //public BaseShip()
+            //{
+            //    Console.WriteLine("Вызван конструкор родительского класса");
 
-            }
+            //}
 
             private int counter;
 
             public int speed;
 
-            public string Move (int disnance)
+            public virtual string Move (int disnance)
             {
                 counter++;
 
@@ -41,21 +41,29 @@ namespace ladonin
                 return result;
             }
 
-        }
-        
-        public  class AnotherBaseShip 
-        {
-
+            public override string ToString()
+            {
+                return "Базовый класс всех кораблей";
+            }
         }
 
         public class TransportShip : BaseShip 
         {
-            public TransportShip()
+            //public TransportShip()
+            //{
+            //    Console.WriteLine("Вызван конструкор дочерного класса");
+            //}
+            //public void Start()
+            //{
+            //}
+
+
+            public override string Move(int distance)
             {
-                Console.WriteLine("Вызван конструкор дочерного класса");
-            }
-            public void Start()
-            {
+                string result = base.Move(distance);
+                result += string.Format("\r\nТраспортный корабль преодолел км: {0}", distance);
+
+                return result;
 
             }
         }
