@@ -66,6 +66,11 @@ namespace ladonin
                 return result;
 
             }
+
+            public override string ToString()
+            {
+                return "Транспортный корабль подбит";
+            }
         }
              
 
